@@ -13,17 +13,17 @@ def data_get():
 
 win = Tk()
 
-win.title("RON")
+win.title("RIKI")
 win.config(bg="blue")
 win.geometry("500x570")  # Corrected the geometry format
 
-name_label = Label(win, text="RON Weather App",
+name_label = Label(win, text="RIKI Weather App",
                    font=("Times New Roman", 30, "bold"))  # Corrected the font name
 name_label.place(x=25, y=50, height=50, width=450)
 city_name = StringVar()
 list_name = ["Andhra Pradesh","Arunachal Pradesh ","Assam","Bihar","Chhattisgarh","Goa","Gujarat","Haryana","Himachal Pradesh","Jammu and Kashmir","Jharkhand","Karnataka","Kerala","Madhya Pradesh","Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland","Odisha","Punjab","Rajasthan","Sikkim","Tamil Nadu","Telangana","Tripura","Uttar Pradesh","Uttarakhand","West Bengal","Andaman and Nicobar Islands","Chandigarh","Dadra and Nagar Haveli","Daman and Diu","Lakshadweep","National Capital Territory of Delhi","Puducherry"]
 
-com = ttk.Combobox(win, text="RON Weather App",values=list_name,
+com = ttk.Combobox(win, text="RIKI Weather App",values=list_name,
                    font=("Times New Roman", 20, "bold"),textvariable=city_name)
 com.place(x=25, y=120, height=50, width=450)
 
