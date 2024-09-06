@@ -88,18 +88,18 @@ def set_reminder(reminder_time, reminder_message):
         speechtx("The reminder time has already passed.")
 
 if __name__ == '__main__':
-    speechtx("Hi, I'm Ron. How can I help you today?")
+    speechtx("Hi, I'm Riki. How can I help you today?")
     while True:
         data = sptext().lower()
         if "hi ron" in data:
             speechtx("Hello, how can I help you?")
 
         elif "your name" in data:
-            name = "My name is Ron."
+            name = "My name is Riki."
             speechtx(name)
 
         elif "old are you" in data:
-            age = "I am twenty one years old."
+            age = "I am twenty years old."
             speechtx(age)
 
         elif "time" in data:
