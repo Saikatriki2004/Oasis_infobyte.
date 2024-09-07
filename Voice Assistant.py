@@ -76,7 +76,7 @@ def get_weather():
 def set_reminder(reminder_time, reminder_message):
     def reminder():
         speechtx(f"Reminder: {reminder_message}")
-
+    
     reminder_time_struct = time.strptime(reminder_time, '%H:%M')
     reminder_epoch = time.mktime(reminder_time_struct)
     current_epoch = time.time()
@@ -87,13 +87,13 @@ def set_reminder(reminder_time, reminder_message):
     else:
         speechtx("The reminder time has already passed.")
 
-if __name__ == '__main__':
+if _name_ == '_main_':
     speechtx("Hi, I'm Riki. How can I help you today?")
     while True:
         data = sptext().lower()
-        if "hi ron" in data:
+        if "hi Riki" in data:
             speechtx("Hello, how can I help you?")
-
+        
         elif "your name" in data:
             name = "My name is Riki."
             speechtx(name)
@@ -132,7 +132,7 @@ if __name__ == '__main__':
         elif "stop" in data:
             speechtx("Thank you. Goodbye!")
             break
-
+        
         time.sleep(5)
 else:
     print("Thanks")
