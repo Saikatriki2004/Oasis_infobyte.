@@ -1,32 +1,30 @@
-import threading
+#client
 import socket
-alias = input('Choose an alias >>> ')
-client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client.connect(('127.0.0.1', 59000))
+import threading
 
-
-def client_receive():
+def receive_messages(client_socket):
     while True:
         try:
-            message = client.recv(1024).decode('utf-8')
-            if message == "alias?":
-                client.send(alias.encode('utf-8'))
+            message = client_socket.recv(1024).decode('utf-8')
+            if message:
+                print(f"Server: {message}")
             else:
-                print(message)
-        except:
-            print('Error!')
-            client.close()
+                break
+        except ConnectionResetError:
             break
+    
+    client_socket.close()
 
+def main():
+    client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    client.connect(('127.0.0.1', 9999))
 
-def client_send():
+    receive_thread = threading.Thread(target=receive_messages, args=(client,))
+    receive_thread.start()
+
     while True:
-        message = f'{alias}: {input("")}'
+        message = input("You: ")
         client.send(message.encode('utf-8'))
 
-
-receive_thread = threading.Thread(target=client_receive)
-receive_thread.start()
-
-send_thread = threading.Thread(target=client_send)
-send_thread.start()
+if __name__ == "__main__":
+    main()
